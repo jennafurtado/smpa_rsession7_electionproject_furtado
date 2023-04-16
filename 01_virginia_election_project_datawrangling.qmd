@@ -1,6 +1,6 @@
 ---
 title: "Virginia Election Project"
-author: "putyournamehere"
+author: "Jenna Furtado"
 execute:
   echo: true
 format:
@@ -324,7 +324,9 @@ Now that things are join, let's actually go ahead and start making columns to co
 Where should we go from here....? Give it a shot... 
 
 ```{r}
-
+joined_vacomparison <- joined_vacomparison %>% 
+  mutate(youngkin_overperform = pct_youngkin - trump_pct,
+         youngkin_overperform_morethan5 = if_else(youngkin_overperform > +5, "Yes", "No" ))
 
 
 ```
@@ -332,7 +334,8 @@ Where should we go from here....? Give it a shot...
 
 ```{r}
 
-
+saveRDS(joined_vacomparison, here("processed_data", "joined_vacomparison.rds"))
+write_csv(joined_vacomparison, here("processed_data", "joined_vacomparison.csv"))
 
 ```
 
