@@ -321,7 +321,7 @@ Alright! It worked.
 
 Now that things are join, let's actually go ahead and start making columns to compare the two elections and how the candidates did this time compared with last time.
 
-Where should we go from here....? Give it a shot... 
+Where should we go from here....? Give it a shot...
 
 ```{r}
 joined_vacomparison <- joined_vacomparison %>% 
@@ -331,7 +331,6 @@ joined_vacomparison <- joined_vacomparison %>%
 
 ```
 
-
 ```{r}
 
 saveRDS(joined_vacomparison, here("processed_data", "joined_vacomparison.rds"))
@@ -339,20 +338,17 @@ write_csv(joined_vacomparison, here("processed_data", "joined_vacomparison.csv")
 
 ```
 
-
 ```{r}
 
 
 
 ```
 
-
 ```{r}
 
 
 
 ```
-
 
 ```{r}
 

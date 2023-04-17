@@ -17,6 +17,12 @@ library(tidyverse)
 library(janitor)
 library(kableExtra)
 library(here)
+library(DT)
+library(scales)
+library(viridis)
+library(ggthemes)
+library(htmlwidgets)
+library(htmltools)
 options(scipen = 999)
 options(stringsAsFactors = FALSE)
 
@@ -39,3 +45,20 @@ head(joined_vacomparison)
 
 
 ```
+```{r}
+joined_vacomparison %>% 
+  arrange(youngkin_overperform) %>% 
+  head(15) %>% 
+  ggplot(aes(x = reorder(locality, youngkin_overperform), y = youngkin_overperform)) +
+  geom_col(color = "black", fill = "purple") + 
+  coord_flip() + 
+  scale_y_continuous(name = "How Much Did Glenn Youngkin Exceed Donald Trump in Votes") +
+  scale_x_discrete(name = "County") + 
+  theme_hc() +
+  labs(title = "Voting Results in Virginia",
+       subtitle = "2020 General Election",
+       caption = "Source: Virginia Government") +
+  theme(axis.text.y = element_text(angle = 45))
+
+```
+
